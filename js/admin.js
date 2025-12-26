@@ -11,9 +11,9 @@ function base64Decode(b64){
 }
 
 // Estado global (se llenan al loguear)
-let GITHUB_TOKEN = "";
-let OWNER = "";
-let REPO = "";
+let GITHUB_TOKEN = "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";
+let OWNER = "EstebanPineyrua";
+let REPO = "Gestion";
 const PATH = "data/records.json";
 
 const statusEl = () => document.getElementById("login-status");
