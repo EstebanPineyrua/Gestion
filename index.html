@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Registro de pagos - Público</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Vertical Buenos Aires — Pagos</h1>
+    <p class="subtitle">Listado público de clientes y cuánto pagaron</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Últimos pagos</h2>
+      <div id="list-container" class="table-wrap">
+        <table id="records-table" class="records-table" aria-live="polite">
+          <thead>
+            <tr><th>Cliente</th><th>Producto</th><th>Monto</th><th>Fecha</th></tr>
+          </thead>
+          <tbody id="records-body">
+            <tr><td colspan="4">Cargando...</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted">El contenido es público: nadie puede editar desde aquí.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Diseñado para manejar registros sin base de datos — GitHub como almacenamiento</small>
+  </footer>
+
+  <script src="js/public.js"></script>
+</body>
+</html>

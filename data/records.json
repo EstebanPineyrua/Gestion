@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1690000000001,
+    "cliente": "Guadalupe",
+    "producto": "Afilado esquí",
+    "monto": 2500,
+    "fecha": "2025-12-01T10:15:00.000Z"
+  },
+  {
+    "id": 1690000000002,
+    "cliente": "Martín",
+    "producto": "Montaje fijaciones",
+    "monto": 4500,
+    "fecha": "2025-12-08T14:30:00.000Z"
+  }
+]
