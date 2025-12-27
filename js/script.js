@@ -1,4 +1,3 @@
-// CONFIGURACIÓN DE TU FIREBASE
 const firebaseConfig = {
   apiKey: "AIzaSyDvtibDrtz0VmidYlHe7dkdRqQm68UyQts",
   authDomain: "gestion-7eae0.firebaseapp.com",
@@ -9,27 +8,24 @@ const firebaseConfig = {
   appId: "1:790154978396:web:753715b93fb84b55673299"
 };
 
-// Inicializar Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
 let stockData = [];
 let isAdmin = false;
 
-// 1. ESCUCHA EN TIEMPO REAL
+// Sincronización en tiempo real
 db.ref("productos").on("value", (snapshot) => {
     const data = snapshot.val();
-    // Si no hay datos, iniciamos con lista vacía
     stockData = data ? Object.values(data) : [];
     renderTabla();
     document.getElementById('loading').style.display = 'none';
-    document.getElementById('status-msg').innerText = "🟢 Conectado y Sincronizado";
+    document.getElementById('status-msg').innerHTML = "🟢 <span style='color:black'>Conectado y Sincronizado</span>";
 });
 
-// 2. MODO ADMIN
 function activarModoAdmin() {
     const pass = document.getElementById('admin-pass').value;
-    if (pass === "Meki") { // <--- ESTA ES TU CONTRASEÑA
+    if (pass === "Meki") { 
         isAdmin = true;
         document.getElementById('admin-controls').style.display = 'flex';
         document.getElementById('admin-pass').style.display = 'none';
@@ -49,7 +45,7 @@ function renderTabla() {
         if(isAdmin) row.classList.add('editing');
 
         let linkCol = isAdmin 
-            ? `<input class="editable" value="${item.url || ''}" placeholder="URL" onchange="stockData[${i}].url=this.value">`
+            ? `<input class="editable" value="${item.url || ''}" placeholder="Pegar URL aquí" onchange="stockData[${i}].url=this.value">`
             : (item.url ? `<a href="${item.url}" target="_blank" class="ver-link">VER PRODUCTO</a>` : "-");
 
         row.innerHTML = `
@@ -63,14 +59,13 @@ function renderTabla() {
     });
 }
 
-// 3. ACCIONES
 function agregarFila() {
     stockData.push({ marca: "Nueva", producto: "Producto", stock: 0, url: "" });
     renderTabla();
 }
 
 function eliminarFila(i) {
-    if(confirm("¿Seguro que quieres borrar este producto?")) {
+    if(confirm("¿Eliminar este producto permanentemente?")) {
         stockData.splice(i, 1);
         renderTabla();
     }
@@ -81,11 +76,10 @@ async function guardarCambios() {
     const btn = document.getElementById('btn-save');
     btn.innerText = "⏳ Guardando...";
     try {
-        // Guardamos directamente en la base de datos de Google
         await db.ref("productos").set(stockData);
-        alert("✅ Stock actualizado en todos los dispositivos");
+        alert("✅ Stock actualizado correctamente");
     } catch (e) {
-        alert("Error al guardar: " + e.message);
+        alert("Error: " + e.message);
     }
     btn.innerText = "💾 Guardar";
 }

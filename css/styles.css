@@ -1,17 +1,111 @@
-:root { --primary: #3498db; --success: #27ae60; --danger: #e74c3c; --white: #ffffff; }
-body { font-family: 'Segoe UI', sans-serif; background: #f4f7f6; padding: 15px; margin: 0 auto; max-width: 900px; }
-h1 { text-align: center; color: #2c3e50; }
-#admin-panel { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-input[type="password"] { padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
-button { padding: 10px 15px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; color: white; transition: 0.3s; }
-.btn-login { background: #34495e; } .btn-save { background: var(--success); } .btn-add { background: var(--primary); } .btn-logout { background: #7f8c8d; } .btn-del { background: var(--danger); padding: 5px 10px; font-size: 0.8em; }
-.table-container { overflow-x: auto; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-table { width: 100%; border-collapse: collapse; min-width: 600px; }
-th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
-thead { background: var(--primary); color: white; }
-.editable { width: 100%; border: 1px solid transparent; background: transparent; padding: 5px; box-sizing: border-box; }
-.editing .editable { border: 1px solid #ddd; background: #fff; border-radius: 4px; }
-.ver-link { color: var(--primary); font-weight: bold; text-decoration: none; border: 1px solid var(--primary); padding: 4px 8px; border-radius: 4px; font-size: 0.8em; }
-#loading { text-align: center; margin-top: 20px; font-weight: bold; color: var(--primary); }
-#status-msg { text-align: center; margin-bottom: 10px; font-weight: bold; font-size: 0.9em; }
-@media (max-width: 600px) { #admin-panel button { width: 100%; } }
+:root { 
+    --primary: #3498db; 
+    --success: #27ae60; 
+    --danger: #e74c3c; 
+    --white: #ffffff; 
+    --dark: #2c3e50; /* Color oscuro para textos */
+}
+
+body { 
+    font-family: 'Segoe UI', system-ui, sans-serif; 
+    background: #f4f7f6; 
+    padding: 10px; 
+    margin: 0 auto; 
+    max-width: 900px; 
+    color: var(--dark); 
+}
+
+h1 { text-align: center; color: var(--dark); margin: 20px 0; font-size: 1.8rem; }
+
+/* Panel de Admin */
+#admin-panel { 
+    background: white; 
+    padding: 15px; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    margin-bottom: 20px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
+    align-items: center; 
+}
+
+#admin-controls { display: flex; flex-wrap: wrap; gap: 8px; width: 100%; justify-content: center; }
+
+input[type="password"] { 
+    padding: 12px; 
+    border: 2px solid #ddd; 
+    border-radius: 8px; 
+    width: 100%; 
+    max-width: 300px; 
+    font-size: 1rem;
+    color: black;
+}
+
+button { 
+    padding: 12px 18px; 
+    border: none; 
+    border-radius: 8px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    color: white; 
+    transition: 0.2s; 
+    font-size: 0.9rem;
+}
+
+.btn-login { background: var(--dark); width: 100%; max-width: 300px; }
+.btn-save { background: var(--success); flex: 1; min-width: 120px; }
+.btn-add { background: var(--primary); flex: 1; min-width: 120px; }
+.btn-logout { background: #7f8c8d; }
+.btn-del { background: var(--danger); padding: 6px 10px; }
+
+/* Tabla y Contenedor */
+.table-container { 
+    overflow-x: auto; 
+    background: white; 
+    border-radius: 12px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+}
+
+table { width: 100%; border-collapse: collapse; min-width: 500px; }
+th { background: var(--primary); color: white; padding: 12px; text-align: left; font-size: 0.9rem; }
+td { padding: 12px; border-bottom: 1px solid #eee; color: black; font-weight: 500; }
+
+/* Inputs de edición */
+.editable { 
+    width: 100%; 
+    border: 1px solid transparent; 
+    background: transparent; 
+    padding: 8px; 
+    color: black; 
+    font-size: 1rem;
+}
+.editing .editable { border: 1px solid #ccc; background: #fff; border-radius: 4px; }
+
+/* BOTÓN VER PRODUCTO MEJORADO */
+.ver-link { 
+    display: inline-block;
+    color: black !important; /* Texto en negro */
+    font-weight: bold; 
+    text-decoration: none; 
+    border: 2px solid var(--primary); 
+    padding: 8px 12px; 
+    border-radius: 6px; 
+    font-size: 0.8rem; 
+    text-align: center;
+    background: white;
+    white-space: nowrap;
+}
+
+.ver-link:active { background: var(--primary); color: white !important; }
+
+#loading { text-align: center; margin: 20px; font-weight: bold; color: var(--primary); }
+#status-msg { text-align: center; margin-bottom: 10px; font-weight: bold; font-size: 1rem; color: var(--dark); }
+
+/* Ajustes para Celular */
+@media (max-width: 600px) {
+    body { padding: 5px; }
+    h1 { font-size: 1.5rem; }
+    td, th { padding: 10px 5px; font-size: 0.85rem; }
+    .ver-link { padding: 6px 8px; width: 100%; box-sizing: border-box; }
+}
