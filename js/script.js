@@ -1,6 +1,6 @@
 const GITHUB_USERNAME = "EstebanPineyrua"; 
 const REPO_NAME = "Gestion";          
-const FILE_PATH = "stock.json";       
+const FILE_PATH = "data/stock.json";       
 
 let stockData = [];
 let shaFile = "";
