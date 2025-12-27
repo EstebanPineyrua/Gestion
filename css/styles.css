@@ -75,8 +75,7 @@ td { padding: 12px; border-bottom: 1px solid #eee; color: black; font-weight: 50
 .editable { 
     width: 100%; 
     border: 1px solid transparent; 
-    background: transparent; 
-    padding: 8px; 
+    background: transparent;  
     color: black; 
     font-size: 1rem;
 }
