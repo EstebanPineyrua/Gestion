@@ -25,7 +25,7 @@ db.ref("productos").on("value", (snapshot) => {
 
 function activarModoAdmin() {
     const pass = document.getElementById('admin-pass').value;
-    if (pass === "Meki") { 
+    if (btoa(pass) === "TWVraQ==") { 
         isAdmin = true;
         document.getElementById('admin-controls').style.display = 'flex';
         document.getElementById('admin-pass').style.display = 'none';
