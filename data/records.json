@@ -12,5 +12,12 @@
     "producto": "Color Lorela 1011",
     "monto": 45000,
     "fecha": "2025-12-27T14:10:34.398Z"
+  },
+  {
+    "id": 1766848059228,
+    "cliente": "Esteban",
+    "producto": "Corte",
+    "monto": 13000,
+    "fecha": "2025-12-27T15:07:39.228Z"
   }
 ]
