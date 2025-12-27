@@ -3,28 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestor de Stock Cloud</title>
+    <title>Stock Instantáneo - Firebase</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <h1>📦 Control de Inventario</h1>
+    <h1>🚀 Stock en Tiempo Real</h1>
 
-    <div id="status-msg"></div>
+    <div id="status-msg">Iniciando conexión...</div>
 
     <div id="admin-panel">
-        <input type="password" id="github-token" placeholder="Pegar Token de GitHub">
-        <button onclick="activarModoAdmin()" id="btn-login" class="btn-login">🔓 Entrar como Admin</button>
+        <input type="password" id="admin-pass" placeholder="Clave de acceso">
+        <button onclick="activarModoAdmin()" id="btn-login" class="btn-login">🔓 Entrar</button>
         
-        <div id="admin-controls" style="display:none;">
+        <div id="admin-controls" style="display:none; gap:10px;">
             <button onclick="agregarFila()" class="btn-add">➕ Nuevo</button>
-            <button onclick="guardarCambios()" id="btn-save" class="btn-save">💾 Guardar Cambios</button>
-            <button onclick="cargarStockPublico()" class="btn-refresh">🔄 Refrescar</button>
+            <button onclick="guardarCambios()" id="btn-save" class="btn-save">💾 Guardar</button>
             <button onclick="cerrarSesion()" class="btn-logout">🚪 Salir</button>
         </div>
     </div>
 
-    <div id="loading">Cargando datos desde la nube...</div>
+    <div id="loading">Sincronizando con Google Firebase...</div>
 
     <div class="table-container">
         <table>
@@ -33,15 +32,17 @@
                     <th>Marca</th>
                     <th>Producto</th>
                     <th>Stock</th>
-                    <th>Link</th>
-                    <th id="col-acciones" style="display:none;">Borrar</th>
+                    <th>Ver Producto</th>
+                    <th id="col-acciones" style="display:none;">Acciones</th>
                 </tr>
             </thead>
-            <tbody id="tabla-body">
-                </tbody>
+            <tbody id="tabla-body"></tbody>
         </table>
     </div>
 
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-database-compat.js"></script>
+    
     <script src="js/script.js"></script>
 </body>
 </html>

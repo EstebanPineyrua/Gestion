@@ -1,99 +1,17 @@
-:root {
-    --primary: #2980b9;
-    --secondary: #2c3e50;
-    --success: #27ae60;
-    --danger: #e74c3c;
-    --light: #f4f7f6;
-    --white: #ffffff;
-}
-
-body { 
-    font-family: 'Segoe UI', system-ui, sans-serif; 
-    padding: 10px; 
-    max-width: 1100px; 
-    margin: 0 auto; 
-    background-color: var(--light); 
-}
-
-h1 { text-align: center; color: var(--secondary); margin: 20px 0; }
-
-/* Panel Admin */
-#admin-panel { 
-    background: var(--white); 
-    padding: 15px; 
-    border-radius: 12px; 
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
-    margin-bottom: 20px; 
-    display: flex; 
-    flex-wrap: wrap; 
-    gap: 10px; 
-    justify-content: center;
-}
-
-#admin-controls { display: flex; flex-wrap: wrap; gap: 8px; width: 100%; justify-content: center; }
-
-input[type="password"] { padding: 10px; border: 1px solid #ddd; border-radius: 8px; flex: 1; min-width: 200px; }
-
-button { 
-    padding: 10px 15px; 
-    cursor: pointer; 
-    border: none; 
-    border-radius: 8px; 
-    font-weight: bold; 
-    transition: 0.2s;
-    color: white;
-}
-
-.btn-login { background: var(--secondary); }
-.btn-save { background: var(--success); }
-.btn-add { background: var(--primary); }
-.btn-refresh { background: #7f8c8d; }
-.btn-logout { background: #34495e; }
-.btn-del { background: var(--danger); padding: 5px 10px; font-size: 0.8em; }
-
-/* Tabla con Scroll Horizontal */
-.table-container {
-    width: 100%;
-    overflow-x: auto;
-    background: var(--white);
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-}
-
-table { width: 100%; border-collapse: collapse; min-width: 700px; }
+:root { --primary: #3498db; --success: #27ae60; --danger: #e74c3c; --white: #ffffff; }
+body { font-family: 'Segoe UI', sans-serif; background: #f4f7f6; padding: 15px; margin: 0 auto; max-width: 900px; }
+h1 { text-align: center; color: #2c3e50; }
+#admin-panel { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+input[type="password"] { padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+button { padding: 10px 15px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; color: white; transition: 0.3s; }
+.btn-login { background: #34495e; } .btn-save { background: var(--success); } .btn-add { background: var(--primary); } .btn-logout { background: #7f8c8d; } .btn-del { background: var(--danger); padding: 5px 10px; font-size: 0.8em; }
+.table-container { overflow-x: auto; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+table { width: 100%; border-collapse: collapse; min-width: 600px; }
+th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
 thead { background: var(--primary); color: white; }
-th, td { padding: 12px 10px; text-align: left; border-bottom: 1px solid #eee; white-space: nowrap; }
-
-/* Estilo Zebra */
-tbody tr:nth-child(even) { background-color: #fafafa; }
-tbody tr:hover { background-color: #f1f8ff; }
-
-.editable { 
-    width: 100%; 
-    padding: 6px; 
-    border: 1px solid transparent; 
-    background: transparent; 
-    border-radius: 4px; 
-}
-
-.editing .editable { border: 1px solid #cbd5e0; background: white; }
-
-.ver-link {
-    display: inline-block;
-    padding: 5px 10px;
-    background: #ecf0f1;
-    color: var(--primary) !important;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 0.8em;
-    font-weight: bold;
-    border: 1px solid var(--primary);
-}
-
-#loading { text-align: center; padding: 10px; color: var(--primary); font-weight: bold; }
-#status-msg { text-align: center; margin-bottom: 10px; font-weight: bold; }
-
-@media (max-width: 600px) {
-    #admin-panel { flex-direction: column; }
-    button { width: 100%; }
-}
+.editable { width: 100%; border: 1px solid transparent; background: transparent; padding: 5px; box-sizing: border-box; }
+.editing .editable { border: 1px solid #ddd; background: #fff; border-radius: 4px; }
+.ver-link { color: var(--primary); font-weight: bold; text-decoration: none; border: 1px solid var(--primary); padding: 4px 8px; border-radius: 4px; font-size: 0.8em; }
+#loading { text-align: center; margin-top: 20px; font-weight: bold; color: var(--primary); }
+#status-msg { text-align: center; margin-bottom: 10px; font-weight: bold; font-size: 0.9em; }
+@media (max-width: 600px) { #admin-panel button { width: 100%; } }
