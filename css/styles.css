@@ -1,108 +1,142 @@
-/* Estilos generales */
-body { 
-    font-family: 'Segoe UI', system-ui, sans-serif; 
-    padding: 10px; 
-    max-width: 1000px; 
-    margin: 0 auto; 
-    background-color: #f4f7f6; 
+/* --- VARIABLES Y BASES --- */
+:root {
+    --primary: #2980b9;
+    --secondary: #2c3e50;
+    --success: #27ae60;
+    --danger: #e74c3c;
+    --light: #f4f7f6;
+    --white: #ffffff;
 }
 
-h1 { text-align: center; color: #2c3e50; font-size: 1.5rem; }
-
-/* Panel Admin */
-#admin-panel { 
-    background: white; 
+body { 
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
     padding: 15px; 
+    max-width: 1100px; 
+    margin: 0 auto; 
+    background-color: var(--light); 
+    color: #333;
+    line-height: 1.6;
+}
+
+h1 { text-align: center; color: var(--secondary); margin-bottom: 20px; }
+
+/* --- PANEL DE CONTROL (ADMIN) --- */
+#admin-panel { 
+    background: var(--white); 
+    padding: 20px; 
     border-radius: 12px; 
     box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
     margin-bottom: 20px; 
     display: flex; 
-    flex-direction: column; 
+    flex-wrap: wrap; 
     gap: 10px; 
+    align-items: center;
+    justify-content: center;
 }
 
-@media (min-width: 600px) {
-    #admin-panel { flex-direction: row; justify-content: center; }
-}
-
-input[type="password"], .editable { 
-    padding: 10px; 
+input[type="password"] { 
+    padding: 12px; 
     border: 1px solid #ddd; 
     border-radius: 8px; 
+    flex: 1;
+    min-width: 200px;
 }
 
 button { 
-    padding: 12px; 
+    padding: 12px 20px; 
     cursor: pointer; 
     border: none; 
     border-radius: 8px; 
     font-weight: bold; 
-    transition: 0.3s;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.btn-login { background: #2c3e50; color: white; }
-.btn-save { background: #27ae60; color: white; }
-.btn-add { background: #2980b9; color: white; }
-.btn-del { background: #e74c3c; color: white; width: 100%; }
+button:active { transform: scale(0.98); }
 
-/* Tabla Responsive */
+.btn-login { background: var(--secondary); color: white; }
+.btn-save { background: var(--success); color: white; }
+.btn-add { background: var(--primary); color: white; }
+.btn-del { background: var(--danger); color: white; padding: 5px 10px; }
+
+/* --- CONTENEDOR DE TABLA (PARA MÓVIL) --- */
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Habilita scroll horizontal */
+    -webkit-overflow-scrolling: touch;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
 table { 
     width: 100%; 
     border-collapse: collapse; 
-    background: white; 
-    border-radius: 12px; 
-    overflow: hidden; 
+    min-width: 700px; /* Fuerza el scroll en pantallas pequeñas */
 }
 
-thead { background: #2980b9; color: white; }
+thead { background: var(--primary); color: var(--white); }
 
-th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
+th, td { 
+    padding: 15px 10px; 
+    text-align: left; 
+    border-bottom: 1px solid #eee; 
+    white-space: nowrap; /* Evita que el texto salte de línea */
+}
 
+/* Estilo Zebra (filas alternas) */
+tbody tr:nth-child(even) { background-color: #fafafa; }
+tbody tr:hover { background-color: #f1f8ff; }
+
+/* --- INPUTS DENTRO DE LA TABLA --- */
+.editable { 
+    width: 100%; 
+    padding: 8px; 
+    box-sizing: border-box;
+    border: 1px solid transparent; 
+    background: transparent; 
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.editing .editable { 
+    border: 1px solid #cbd5e0; 
+    background: var(--white); 
+}
+
+.editing .editable:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.1);
+}
+
+/* --- BOTÓN VER PRODUCTO --- */
 .ver-link {
     display: inline-block;
-    background: #95a5a6;
-    color: white !important;
-    padding: 8px 12px;
+    background: #ecf0f1;
+    color: var(--primary) !important;
+    padding: 6px 12px;
     text-decoration: none;
     border-radius: 6px;
     font-size: 0.85em;
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
+    font-weight: 700;
+    border: 1px solid var(--primary);
+    transition: 0.2s;
 }
 
-/* --- MAGIA PARA MÓVILES --- */
-@media screen and (max-width: 600px) {
-    table, thead, tbody, th, td, tr { display: block; }
-    
-    thead tr { position: absolute; top: -9999px; left: -9999px; }
-    
-    tr { 
-        border: 1px solid #ccc; 
-        margin-bottom: 15px; 
-        border-radius: 12px; 
-        padding: 10px; 
-        background: white;
-    }
-    
-    td { 
-        border: none; 
-        position: relative; 
-        padding-left: 40%; 
-        min-height: 35px;
-    }
-    
-    td:before { 
-        position: absolute; 
-        left: 10px; 
-        width: 35%; 
-        font-weight: bold; 
-        color: #7f8c8d;
-    }
-    
-    /* Etiquetas para identificar los datos en móvil */
-    td:nth-of-type(1):before { content: "Marca:"; }
-    td:nth-of-type(2):before { content: "Producto:"; }
-    td:nth-of-type(3):before { content: "Stock:"; }
-    td:nth-of-type(4):before { content: "Link:"; }
+.ver-link:hover {
+    background: var(--primary);
+    color: var(--white) !important;
+}
+
+/* --- ESTADOS --- */
+#loading { text-align: center; padding: 20px; font-weight: bold; color: var(--primary); }
+#status-msg { text-align: center; margin-bottom: 15px; font-weight: bold; }
+
+/* --- ADAPTACIÓN PARA MÓVILES (BOTONES) --- */
+@media (max-width: 600px) {
+    #admin-panel { flex-direction: column; align-items: stretch; }
+    .btn-login, .btn-save, .btn-add { width: 100%; }
 }
