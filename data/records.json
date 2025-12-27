@@ -12,5 +12,12 @@
     "producto": "Montaje fijaciones",
     "monto": 4500,
     "fecha": "2025-12-08T14:30:00.000Z"
+  },
+  {
+    "id": 1766844432511,
+    "cliente": "Esteban",
+    "producto": "Lola",
+    "monto": 1200,
+    "fecha": "2025-12-27T14:07:12.511Z"
   }
 ]
