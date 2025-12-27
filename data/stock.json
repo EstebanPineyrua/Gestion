@@ -1,14 +1,14 @@
 [
   {
     "id": 1,
-    "producto": "Cucao ",
+    "producto": "Producto de Prueba",
     "cantidad": 10,
     "precio": 100
   },
   {
-    "id": 1766853846052,
-    "producto": "Nuevo",
-    "cantidad": 0,
-    "precio": 0
+    "id": 1766853950980,
+    "producto": "Kano",
+    "cantidad": 1000,
+    "precio": 12313
   }
 ]
