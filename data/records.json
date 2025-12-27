@@ -5,5 +5,12 @@
     "producto": "Afilado esquí",
     "monto": 2500,
     "fecha": "2025-12-01T10:15:00.000Z"
+  },
+  {
+    "id": 1766844634398,
+    "cliente": "Juan cruz",
+    "producto": "Color Lorela 1011",
+    "monto": 45000,
+    "fecha": "2025-12-27T14:10:34.398Z"
   }
 ]
