@@ -3,39 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Stock</title>
+    <title>Gestor de Stock Cloud</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1>📦 Gestión de Inventario</h1>
+
+    <h1>📦 Control de Inventario</h1>
+
     <div id="status-msg"></div>
 
     <div id="admin-panel">
-        <input type="password" id="github-token" placeholder="Pegar Token Aquí">
+        <input type="password" id="github-token" placeholder="Pegar Token de GitHub">
         <button onclick="activarModoAdmin()" id="btn-login" class="btn-login">🔓 Entrar como Admin</button>
         
-        <div id="admin-controls" style="display:none; gap:10px;">
+        <div id="admin-controls" style="display:none;">
             <button onclick="agregarFila()" class="btn-add">➕ Nuevo</button>
-            <button onclick="guardarCambios()" id="btn-save" class="btn-save" style="display:block;">💾 Guardar Todo</button>
+            <button onclick="guardarCambios()" id="btn-save" class="btn-save">💾 Guardar Cambios</button>
+            <button onclick="cargarStockPublico()" class="btn-refresh">🔄 Refrescar</button>
+            <button onclick="cerrarSesion()" class="btn-logout">🚪 Salir</button>
         </div>
     </div>
 
-    <div id="loading">Cargando datos...</div>
-<div class="table-container">
-    <table>
-        <thead>
-            <tr>
-                <th>Marca</th>
-                <th>Producto</th>
-                <th>Stock</th>
-                <th>Link</th>
-                <th id="col-acciones" style="display:none;">Acciones</th>
-            </tr>
-        </thead>
-        <tbody id="tabla-body">
-            </tbody>
-    </table>
-</div>
+    <div id="loading">Cargando datos desde la nube...</div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Marca</th>
+                    <th>Producto</th>
+                    <th>Stock</th>
+                    <th>Link</th>
+                    <th id="col-acciones" style="display:none;">Borrar</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-body">
+                </tbody>
+        </table>
+    </div>
 
     <script src="js/script.js"></script>
 </body>
