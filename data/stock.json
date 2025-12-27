@@ -1,3 +1,8 @@
 [
-  { "id": 1, "producto": "Producto de Prueba", "cantidad": 10, "precio": 100 }
+  {
+    "marca": "Nike",
+    "producto": "Zapatillas Run",
+    "stock": 15,
+    "url": "https://enlace-a-foto.com/foto.jpg"
+  }
 ]

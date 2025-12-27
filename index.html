@@ -2,30 +2,38 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Gestor de Stock</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Panel de Stock</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>📦 Control de Stock</h1>
+    <h1>📦 Gestión de Inventario</h1>
     <div id="status-msg"></div>
+
     <div id="admin-panel">
-        <input type="password" id="github-token" placeholder="Token GitHub">
-        <button onclick="activarModoAdmin()" class="btn-login" id="btn-login">🔑 Login</button>
-        <button onclick="agregarFila()" class="btn-add" id="btn-add">➕ Agregar</button>
-        <button onclick="guardarCambios()" class="btn-save" id="btn-save">💾 Guardar</button>
+        <input type="password" id="github-token" placeholder="Pegar Token Aquí">
+        <button onclick="activarModoAdmin()" id="btn-login" class="btn-login">🔓 Entrar como Admin</button>
+        
+        <div id="admin-controls" style="display:none; gap:10px;">
+            <button onclick="agregarFila()" class="btn-add">➕ Nuevo</button>
+            <button onclick="guardarCambios()" id="btn-save" class="btn-save" style="display:block;">💾 Guardar Todo</button>
+        </div>
     </div>
-    <div id="loading">Cargando...</div>
+
+    <div id="loading">Cargando datos...</div>
+
     <table>
         <thead>
             <tr>
+                <th>Marca</th>
                 <th>Producto</th>
                 <th>Stock</th>
-                <th>Precio</th>
+                <th>Link</th>
                 <th id="col-acciones" style="display:none;">Acciones</th>
             </tr>
         </thead>
         <tbody id="tabla-body"></tbody>
     </table>
+
     <script src="js/script.js"></script>
 </body>
 </html>
