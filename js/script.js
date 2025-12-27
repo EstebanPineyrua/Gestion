@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 async function cargarStockPublico() {
     document.getElementById('loading').style.display = 'block';
     try {
-        const url = `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${REPO_NAME}/main/${FILE_PATH}?t=${Date.now()}`;
+        const url = `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${REPO_NAME}/main/${FILE_PATH}?cache=${new Date().getTime()}`;
         const response = await fetch(url);
         stockData = await response.json();
         renderTabla();
