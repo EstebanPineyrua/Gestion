@@ -1,3 +1,11 @@
 [
-  { "id": 1, "producto": "Producto de Prueba", "cantidad": 10, "precio": 100 }
+  {
+    "id": 1,
+    "producto": "cucao",
+    "cantidad": 10,
+    "precio": 100,
+    "marca": "Kano",
+    "stock": 1,
+    "url": "https://kano.com.ar/products/silla-plegable-para-camping-cucao?srsltid=AfmBOooyaKk_oycT59H6EtCrbVrx-WsS6qy1JEwCOG3XGjyKTO3osmsZ"
+  }
 ]
