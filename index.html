@@ -1,37 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Registro de pagos</title>
-  <link rel="stylesheet" href="css/styles.css" />
+    <meta charset="UTF-8">
+    <title>Gestor de Stock</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="topbar">
-    <h1>Daniel Coronel</h1>
-    <p class="subtitle">Listado de clientes y cuánto pagaron</p>
-  </header>
-
-  <main class="container">
-    <section class="card">
-      <h2>Últimos pagos</h2>
-      <div id="list-container" class="table-wrap">
-        <table id="records-table" class="records-table" aria-live="polite">
-          <thead>
-            <tr><th>Cliente</th><th>Producto</th><th>Monto</th><th>Fecha</th></tr>
-          </thead>
-          <tbody id="records-body">
-            <tr><td colspan="4">Cargando...</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <small>Diseñado para manejar registros sin base de datos — GitHub como almacenamiento</small>
-  </footer>
-
-  <script src="js/public.js"></script>
+    <h1>📦 Control de Stock</h1>
+    <div id="status-msg"></div>
+    <div id="admin-panel">
+        <input type="password" id="github-token" placeholder="Token GitHub">
+        <button onclick="activarModoAdmin()" class="btn-login" id="btn-login">🔑 Login</button>
+        <button onclick="agregarFila()" class="btn-add" id="btn-add">➕ Agregar</button>
+        <button onclick="guardarCambios()" class="btn-save" id="btn-save">💾 Guardar</button>
+    </div>
+    <div id="loading">Cargando...</div>
+    <table>
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Stock</th>
+                <th>Precio</th>
+                <th id="col-acciones" style="display:none;">Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tabla-body"></tbody>
+    </table>
+    <script src="script.js"></script>
 </body>
 </html>
